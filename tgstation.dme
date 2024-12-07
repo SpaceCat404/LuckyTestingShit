@@ -4596,6 +4596,7 @@
 #include "modular_splurt\code\game\atoms_movable.dm"
 #include "modular_splurt\code\game\data_huds.dm"
 #include "modular_splurt\code\game\say.dm"
+#include "modular_splurt\code\game\splurt_posters.dm"
 #include "modular_splurt\code\game\area\areas\centcom.dm"
 #include "modular_splurt\code\game\area\areas\commons.dm"
 #include "modular_splurt\code\game\area\areas\holodeck.dm"
