@@ -1,6 +1,6 @@
 obj/item/memoryscanner
 	name = "handheld memory scanner"
-	icon = 'icons/obj/device.dmi'
+	icon = 'modular_splurt/icons/obj/device.dmi'
 	icon_state = "memoryscanner"
 	item_state = "inducer-sci"
 	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
@@ -24,25 +24,29 @@ obj/item/memoryscanner
 	return OXYLOSS
 
 /obj/item/memoryscanner/attack(mob/living/M, mob/living/carbon/human/user)
-	if(HAS_TRAIT(user, TRAIT_CLUMSY) && prob(50))
+	if (HAS_TRAIT(user, TRAIT_CLUMSY) && prob(50))
 		memory_scan(user, user)
-		to_chat(user, "<span class='warning'>Uh... how does this dohickey work?!</span>")
+		to_chat(user, "<span class='warning'>Uh... how does this doohickey work?!</span>")
 		user.visible_message("<span class='danger'>[user] clumsily zaps his head with the [src]!</span>")
-		user.adjustOrganLoss(ORGAN_SLOT_BRAIN, 30)
+		var/obj/item/organ/brain/E
+		E = user.getorganslot(ORGAN_SLOT_BRAIN)
+		E.applyOrganDamage(30)
 	else
 		user.visible_message("<span class='danger'>[user] is trying to scan [M]'s mind with the [src]!</span>")
-		if(do_mob(user, M, 15))
+		if (do_mob(user, M, 15))
 			user.visible_message("<span class='danger'>[user] scans [M]'s mind with the [src]!</span>")
 			memory_scan(user, M)
 
 proc/memory_scan(mob/user, mob/living/T)
 	var/msg = "<span class='info'>Analyzing results for [T]'s memory.</span>"
-	if(!isliving(T) || !T.client)
+	if (!isliving(T) || !T.mind)
 		msg += "\n<span class='alert'>[T]'s mind is non-compliant! Scan failed.</span>"
 		return
 	else if (T.mind.unconvertable)
 		msg += "\n<span class='alert'>[T]'s mind is too well reinforced! Scan failed.</span>"
 		return
 	else
-		msg += "\n<span class='info'>Memory scan complete. \n [T.mind] </span>"
+
+		msg += "\n<span class='info'>Memory scan complete. \n Mind Contents: \n [T.mind] \n [T.mind.show_memory()] \n </span>"
+		to_chat(user, examine_block(msg))
 		return
