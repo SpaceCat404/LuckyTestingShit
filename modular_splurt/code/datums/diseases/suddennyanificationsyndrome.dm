@@ -17,10 +17,8 @@
 /datum/disease/sns/stage_act()
     ..()
     switch(stage)
-	to_chat(affected_mob, "<span class='warning'>" + pick(
-                    "You feel different, change is in the air. Nya~!") + "</span>")
         if(1)
-            if(prob(10))
+            if(prob(12))
                 to_chat(affected_mob, "<span class='warning'>" + pick(
                     "You feel extra silly today.",
                     "You can't stop thinking about milk.",
@@ -28,7 +26,7 @@
                     "Mmmmm, fish.") + "</span>")
 
         if(2)
-            if(prob(7))
+            if(prob(10))
                 to_chat(affected_mob, "<span class='warning'>" + pick(
                     "Your ears feel oddly sensitive.",
                     "You have an overwhelming urge to chase a laser pointer..",
@@ -55,8 +53,8 @@
                     "You're the most important person on this station.",
                     "You should annoy CC.") + "</span>")
 
-            purrbation_apply(affected_mob)
-            cure(TRUE)
+                purrbation_apply(affected_mob)
+                cure(TRUE)
 
     return
 
