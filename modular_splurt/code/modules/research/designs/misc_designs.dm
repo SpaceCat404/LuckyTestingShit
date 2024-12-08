@@ -32,6 +32,6 @@
 	id = "memory_scanner"
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 20000, /datum/material/glass = 10000, /datum/material/plasma = 2000, /datum/material/gold = 2000)
-	build_path = obj/item/memoryscanner
+	build_path = /obj/item/memoryscanner
 	category = list("Tool Designs")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
