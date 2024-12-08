@@ -1627,3 +1627,17 @@ To add randomization to your emote, copy and paste this line of code:
 	emote_cooldown = 4 SECONDS
 	vary = FALSE
 	volume = 30
+
+/datum/emote/sound/human/theemotethatmakesyouexplode
+	key = "theemotethatmakesyouexplode"
+	key_third_person = "explodes!"
+	message = "explodes!"
+	sound = 'sound/voice/oof.ogg'
+	emote_cooldown = 8 SECONDS
+	vary = FALSE
+	volume = 30
+
+/datum/emote/living/theemotethatmakesyouexplode/run_emote(mob/user)
+    ..()
+    if(istype(user, /mob/living))
+        user.gib()
