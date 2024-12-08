@@ -30,7 +30,7 @@ obj/item/memoryscanner
 		user.visible_message("<span class='danger'>[user] clumsily zaps his head with the [src]!</span>")
 		var/obj/item/organ/brain/E
 		E = user.getorganslot(ORGAN_SLOT_BRAIN)
-		E.applyOrganDamage(30)
+		E.applyOrganDamage(15)
 	else
 		user.visible_message("<span class='danger'>[user] is trying to scan [M]'s mind with the [src]!</span>")
 		if (do_mob(user, M, 15))
@@ -42,11 +42,7 @@ proc/memory_scan(mob/user, mob/living/T)
 	if (!isliving(T) || !T.mind)
 		msg += "\n<span class='alert'>[T]'s mind is non-compliant! Scan failed.</span>"
 		return
-	else if (T.mind.unconvertable)
-		msg += "\n<span class='alert'>[T]'s mind is too well reinforced! Scan failed.</span>"
-		return
 	else
-
 		msg += "\n<span class='info'>Memory scan complete. \n Mind Contents: \n [T.mind] \n [T.mind.show_memory()] \n </span>"
 		to_chat(user, examine_block(msg))
 		return
