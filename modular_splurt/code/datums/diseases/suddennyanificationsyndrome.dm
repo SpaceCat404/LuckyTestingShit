@@ -54,7 +54,12 @@
                     "You should annoy CC.") + "</span>")
 
                 purrbation_apply(affected_mob)
-                cure(TRUE)
+				var/mob/living/carbon/human/L = affected_mob
+				var/obj/item/organ/tongue/tongue = L.getorgan(/obj/item/organ/tongue)
+				tongue.Remove(L)
+				var/obj/item/organ/tongue/fluffy/newtongue = new
+				newtongue.Insert(L)
+				cure(TRUE)
 
     return
 
