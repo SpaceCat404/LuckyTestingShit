@@ -18,7 +18,7 @@
     ..()
     switch(stage)
         if(1)
-            if(prob(12))
+            if(prob(20))
                 to_chat(affected_mob, "<span class='warning'>" + pick(
                     "You feel extra silly today.",
                     "You can't stop thinking about milk.",
@@ -26,10 +26,10 @@
                     "Mmmmm, fish.") + "</span>")
 
         if(2)
-            if(prob(10))
+            if(prob(30))
                 to_chat(affected_mob, "<span class='warning'>" + pick(
                     "Your ears feel oddly sensitive.",
-                    "You have an overwhelming urge to chase a laser pointer..",
+                    "You have an overwhelming urge to chase a laser pointer.",
                     "You'd like to take a long nap in a sunny window.",
                     "Hmm, maybe you deserve more.") + "</span>")
 
@@ -45,21 +45,20 @@
                     "You spit up a hairball! Eugh.") + "</span>")
 
         if(4)
-            if(prob(25))
+            if(prob(20))
                 affected_mob.emote("mrrp")
                 to_chat(affected_mob, "<span class='warning'>" + pick(
                     "You feel purrrfect.",
                     "You've become a god.",
                     "You're the most important person on this station.",
                     "You should annoy CC.") + "</span>")
-
                 purrbation_apply(affected_mob)
-				var/mob/living/carbon/human/L = affected_mob
-				var/obj/item/organ/tongue/tongue = L.getorgan(/obj/item/organ/tongue)
-				tongue.Remove(L)
-				var/obj/item/organ/tongue/fluffy/newtongue = new
-				newtongue.Insert(L)
-				cure(TRUE)
+                var/mob/living/carbon/human/L = affected_mob
+                var/obj/item/organ/tongue/tongue = L.getorgan(/obj/item/organ/tongue)
+                tongue.Remove(L)
+                var/obj/item/organ/tongue/fluffy/newtongue = new
+                newtongue.Insert(L)
+                cure(TRUE)
 
     return
 
