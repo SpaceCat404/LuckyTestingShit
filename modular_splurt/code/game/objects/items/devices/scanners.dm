@@ -1,4 +1,4 @@
-obj/item/memoryscanner
+/obj/item/memoryscanner
 	name = "handheld memory scanner"
 	icon = 'modular_splurt/icons/obj/device.dmi'
 	icon_state = "memoryscanner"

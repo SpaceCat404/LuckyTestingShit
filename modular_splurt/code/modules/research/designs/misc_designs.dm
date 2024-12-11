@@ -26,7 +26,7 @@
 	category = list("Misc", "Medical Designs")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL | DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_SERVICE
 
-	/datum/design/msc
+/datum/design/msc
 	name = "Memory Scanner"
 	desc = "A hand-held mind scanner able to penetrate the surface mind of a target."
 	id = "memory_scanner"
