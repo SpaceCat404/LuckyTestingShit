@@ -162,4 +162,11 @@
 		/obj/item/clothing/head/outragecowhat = 1,
 	)
 	LAZYADD(contraband, extra_contraband)
+  . = ..()
+
+/obj/machinery/vending/wardrobe/science_wardrobe/Initialize(mapload)
+	var/list/extra_products = list(
+		/obj/item/clothing/mask/gas/tscmask = 3
+	)
+	LAZYADD(products, extra_products)
 	. = ..()
